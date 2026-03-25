@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Problem Solving Study</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="page-shell">
+    <div class="card">
+
+      <h1>Empirical Methods – Feedback Day</h1>
+      <p class="subtitle">Problem-Solving and Academic Background Study</p>
+
+      <!-- SECTION 1: CONSENT -->
+      <div id="consent" class="section">
+        <h2>Consent to Participate</h2>
+        <p>
+          You are invited to participate in a research study examining problem-solving skills and academic background.
+        </p>
+        <p>
+          Participation is voluntary and anonymous. You may stop at any time.
+        </p>
+        <p>
+          This study will take approximately 10–15 minutes.
+        </p>
+
+        <div class="button-row">
+          <button onclick="nextSection('background')">I Agree</button>
+        </div>
+      </div>
+
+      <!-- SECTION 2: BACKGROUND -->
+      <div id="background" class="section hidden">
+        <h2>Background Information</h2>
+
+        <label for="age">What is your age?</label>
+        <input type="text" id="age" />
+
+        <label for="status">What is your current academic status?</label>
+        <select id="status" onchange="toggleOtherField('status','statusOtherWrap')">
+          <option value="">Select one</option>
+          <option>Freshman</option>
+          <option>Sophomore</option>
+          <option>Junior</option>
+          <option>Senior</option>
+          <option>Graduate Student</option>
+          <option>Graduated</option>
+          <option>Other</option>
+        </select>
+
+        <div id="statusOtherWrap" class="hidden">
+          <label for="statusOther">Please specify</label>
+          <input type="text" id="statusOther" />
+        </div>
+
+        <label for="major">What is or was your major field of study?</label>
+        <input type="text" id="major" />
+
+        <label for="csCourses">How many computer science courses have you taken?</label>
+        <select id="csCourses">
+          <option value="">Select one</option>
+          <option>0</option>
+          <option>1-2</option>
+          <option>3-5</option>
+          <option>6+</option>
+        </select>
+
+        <label for="coding">Do you have programming or coding experience outside of formal coursework?</label>
+        <select id="coding">
+          <option value="">Select one</option>
+          <option>Yes</option>
+          <option>No</option>
+        </select>
+
+        <label for="area">Which of the following best describes your strongest academic area?</label>
+        <select id="area" onchange="toggleOtherField('area','areaOtherWrap')">
+          <option value="">Select one</option>
+          <option>Math</option>
+          <option>Science</option>
+          <option>Humanities</option>
+          <option>Other</option>
+        </select>
+
+        <div id="areaOtherWrap" class="hidden">
+          <label for="areaOther">Please specify</label>
+          <input type="text" id="areaOther" />
+        </div>
+
+        <div class="button-row">
+          <button class="secondary" onclick="nextSection('consent')">Back</button>
+          <button onclick="nextSection('instructions')">Next</button>
+        </div>
+      </div>
+
+      <!-- SECTION 3: INSTRUCTIONS -->
+      <div id="instructions" class="section hidden">
+        <h2>Instructions</h2>
+
+        <p>
+          You will complete a problem-solving assessment consisting of 10 multiple-choice questions.
+        </p>
+        <p>
+          You have approximately 10–15 minutes to complete the assessment.
+        </p>
+        <p>
+          Please answer each question to the best of your ability and do not use outside resources.
+        </p>
+        <p>
+          If needed, you may go back now to change your responses before beginning.
+        </p>
+
+        <div class="button-row">
+          <button class="secondary" onclick="nextSection('background')">Back</button>
+          <button onclick="startTest()">Start Test</button>
+        </div>
+      </div>
+
+      <!-- SECTION 4: TEST -->
+      <div id="test" class="section hidden">
+        <div class="test-header">
+          <h2>Questions</h2>
+          <p id="timer" class="timer">Time: 0s</p>
+        </div>
+
+        <div class="question-block">
+          <p class="question">1. All A are B. No B are C. Some D are C. Which must be true?</p>
+          <label><input type="radio" name="q1" value="a" /> Some D are not B</label>
+          <label><input type="radio" name="q1" value="b" /> All D are B</label>
+          <label><input type="radio" name="q1" value="c" /> Some A are C</label>
+          <label><input type="radio" name="q1" value="d" /> All C are A</label>
+        </div>
+
+        <div class="question-block">
+          <p class="question">2. If P then Q. If Q then R. What must be true?</p>
+          <label><input type="radio" name="q2" value="a" /> If R then P</label>
+          <label><input type="radio" name="q2" value="b" /> If Q then P</label>
+          <label><input type="radio" name="q2" value="c" /> If P then R</label>
+          <label><input type="radio" name="q2" value="d" /> None</label>
+        </div>
+
+        <div class="question-block">
+          <p class="question">3. 3, 6, 11, 18, 27, ___</p>
+          <label><input type="radio" name="q3" value="a" /> 36</label>
+          <label><input type="radio" name="q3" value="b" /> 38</label>
+          <label><input type="radio" name="q3" value="c" /> 40</label>
+          <label><input type="radio" name="q3" value="d" /> 42</label>
+        </div>
+
+        <div class="question-block">
+          <p class="question">4. Five people sit in a row. E is at one end. Which must be true?</p>
+          <label><input type="radio" name="q4" value="a" /> A left</label>
+          <label><input type="radio" name="q4" value="b" /> B right</label>
+          <label><input type="radio" name="q4" value="c" /> E at end</label>
+          <label><input type="radio" name="q4" value="d" /> C middle</label>
+        </div>
+
+        <div class="question-block">
+          <p class="question">5. A clock shows 3:15. What is the angle between the hands?</p>
+          <label><input type="radio" name="q5" value="a" /> 0</label>
+          <label><input type="radio" name="q5" value="b" /> 7.5</label>
+          <label><input type="radio" name="q5" value="c" /> 15</label>
+          <label><input type="radio" name="q5" value="d" /> 30</label>
+        </div>
+
+        <div class="question-block">
+          <p class="question">6. If 5 cats catch 5 mice in 5 minutes, how long will it take 1 cat to catch 1 mouse?</p>
+          <label><input type="radio" name="q6" value="a" /> 1</label>
+          <label><input type="radio" name="q6" value="b" /> 2</label>
+          <label><input type="radio" name="q6" value="c" /> 3</label>
+          <label><input type="radio" name="q6" value="d" /> 4</label>
+          <label><input type="radio" name="q6" value="e" /> 5</label>
+        </div>
+
+        <div class="question-block">
+          <p class="question">7. Three crates are all labeled incorrectly. Which box should you pick from?</p>
+          <label><input type="radio" name="q7" value="a" /> Apples</label>
+          <label><input type="radio" name="q7" value="b" /> Oranges</label>
+          <label><input type="radio" name="q7" value="c" /> Mixed</label>
+          <label><input type="radio" name="q7" value="d" /> Cannot determine</label>
+        </div>
+
+        <div class="button-row">
+          <button onclick="submitTest()">Submit</button>
+        </div>
+      </div>
+
+      <!-- RESULTS -->
+      <div id="result" class="section hidden">
+        <h2>Thank You</h2>
+        <p>Your responses have been recorded.</p>
+        <p id="finalTime"></p>
+
+        <div class="button-row">
+          <button onclick="restartStudy()">Restart</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
