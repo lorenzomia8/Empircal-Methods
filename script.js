@@ -1,8 +1,14 @@
+const SUPABASE_URL = "https://nmelndeqbpnmprwtgaof.supabase.co";
+const SUPABASE_ANON_KEY = "sb_publishable_zFYa6uxQsVIdFNyerIDe4Q_sNOh4tlx";
+
+const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
 let startTime;
 let timer;
+let isSubmitting = false;
 
 function nextSection(id) {
-  document.querySelectorAll(".section").forEach(section => {
+  document.querySelectorAll(".section").forEach((section) => {
     section.classList.add("hidden");
   });
   document.getElementById(id).classList.remove("hidden");
@@ -17,23 +23,6 @@ function startTest() {
     const seconds = Math.floor((Date.now() - startTime) / 1000);
     document.getElementById("timer").innerText = "Time: " + seconds + "s";
   }, 1000);
-}
-
-function submitTest() {
-  clearInterval(timer);
-
-  const endTime = Date.now();
-  const totalTime = Math.floor((endTime - startTime) / 1000);
-
-  // Score is calculated and ready if you want to save it later,
-  // but it is not displayed on the final page.
-  const score = calculateScore();
-  console.log("Participant score:", score);
-
-  document.getElementById("finalTime").innerText =
-    "Total time: " + totalTime + " seconds";
-
-  nextSection("result");
 }
 
 function restartStudy() {
@@ -78,4 +67,105 @@ function calculateScore() {
   if (getAnswer("q15") === "a") score++;
 
   return score;
+}
+
+function getFormData(totalTime, score) {
+  return {
+    age: document.getElementById("age")?.value.trim() || "",
+    academic_status: document.getElementById("status")?.value || "",
+    academic_status_other: document.getElementById("statusOther")?.value.trim() || "",
+    major: document.getElementById("major")?.value.trim() || "",
+    cs_courses: document.getElementById("csCourses")?.value || "",
+    coding_experience: document.getElementById("coding")?.value || "",
+    strongest_area: document.getElementById("area")?.value || "",
+    strongest_area_other: document.getElementById("areaOther")?.value.trim() || "",
+
+    q1: getAnswer("q1"),
+    q2: getAnswer("q2"),
+    q3: getAnswer("q3"),
+    q4: getAnswer("q4"),
+    q5: getAnswer("q5"),
+    q6: getAnswer("q6"),
+    q7: getAnswer("q7"),
+    q8: getAnswer("q8"),
+    q9: getAnswer("q9"),
+    q10: getAnswer("q10"),
+    q11: getAnswer("q11"),
+    q12: getAnswer("q12"),
+    q13: getAnswer("q13"),
+    q14: getAnswer("q14"),
+    q15: getAnswer("q15"),
+
+    score: score,
+    total_time_seconds: totalTime
+  };
+}
+
+function validateQuestions() {
+  for (let i = 1; i <= 15; i++) {
+    if (!getAnswer(`q${i}`)) {
+      alert(`Please answer question ${i}.`);
+      return false;
+    }
+  }
+  return true;
+}
+
+async function submitTest() {
+  if (isSubmitting) return;
+
+  if (!startTime) {
+    alert("Please start the test first.");
+    return;
+  }
+
+  if (!validateQuestions()) {
+    return;
+  }
+
+  isSubmitting = true;
+  clearInterval(timer);
+
+  const submitButton = document.querySelector("#test button");
+  if (submitButton) {
+    submitButton.disabled = true;
+    submitButton.innerText = "Submitting...";
+  }
+
+  const endTime = Date.now();
+  const totalTime = Math.floor((endTime - startTime) / 1000);
+  const score = calculateScore();
+  const payload = getFormData(totalTime, score);
+
+  try {
+    const { error } = await supabaseClient
+      .from("study_responses")
+      .insert([payload]);
+
+    if (error) {
+      console.error("Supabase insert error:", error);
+      alert("There was a problem saving the response.");
+      isSubmitting = false;
+
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.innerText = "Submit";
+      }
+      return;
+    }
+
+    document.getElementById("finalTime").innerText =
+      `Total time: ${totalTime} seconds`;
+
+    nextSection("result");
+  } catch (err) {
+    console.error("Unexpected error:", err);
+    alert("There was a problem saving the response.");
+    isSubmitting = false;
+
+    if (submitButton) {
+      submitButton.disabled = false;
+      submitButton.innerText = "Submit";
+    }
+  }
 }
