@@ -100,13 +100,19 @@
         <h2>Instructions</h2>
 
         <p>
-          You will complete a problem-solving assessment consisting of <strong>15 multiple-choice questions</strong>.
+          You will complete a problem-solving assessment consisting of <strong>7 questions</strong>.
         </p>
         <p>
-          You have approximately 10 minutes to complete the assessment.
+          For <strong>Questions 1 through 6</strong>, please enter <strong>numeric answers only</strong>. Do not type words such as "days," "minutes," "students," or "dollars."
+        </p>
+        <p>
+          <strong>Question 7</strong> is multiple choice.
         </p>
         <p>
           Please answer each question to the best of your ability and do not use outside resources.
+        </p>
+        <p>
+          The timer will begin when you click <strong>Start Test</strong>.
         </p>
         <p>
           If needed, you may go back now to change your responses before beginning.
@@ -127,181 +133,63 @@
 
         <div class="question-block">
           <p class="question">
-            1. All A are B. No B are C. Some D are C. Which must be true?
+            1. A bat and a ball cost $1.10 in total. The bat costs a dollar more than the ball. How much does the ball cost?
           </p>
-          <label><input type="radio" name="q1" value="a" /> Some D are not B</label>
-          <label><input type="radio" name="q1" value="b" /> All D are B</label>
-          <label><input type="radio" name="q1" value="c" /> Some A are C</label>
-          <label><input type="radio" name="q1" value="d" /> All C are A</label>
+          <label for="q1">Enter a numeric value only.</label>
+          <input type="number" id="q1" step="any" inputmode="decimal" />
         </div>
 
         <div class="question-block">
           <p class="question">
-            2. If the statements below are true:<br>
-            If P then Q.<br>
-            If Q then R.<br>
-            Which must be true?
+            2. If it takes 5 machines 5 minutes to make 5 widgets, how long would it take 100 machines to make 100 widgets?
           </p>
-          <label><input type="radio" name="q2" value="a" /> If R then P</label>
-          <label><input type="radio" name="q2" value="b" /> If Q then P</label>
-          <label><input type="radio" name="q2" value="c" /> If P then R</label>
-          <label><input type="radio" name="q2" value="d" /> None of the above</label>
+          <label for="q2">Enter a numeric value only.</label>
+          <input type="number" id="q2" step="any" inputmode="decimal" />
         </div>
 
         <div class="question-block">
           <p class="question">
-            3. 3, 6, 11, 18, 27, ___
+            3. In a lake, there is a patch of lily pads. Every day, the patch doubles in size. If it takes 48 days for the patch to cover the entire lake, how long would it take for the patch to cover half of the lake?
           </p>
-          <label><input type="radio" name="q3" value="a" /> 36</label>
-          <label><input type="radio" name="q3" value="b" /> 38</label>
-          <label><input type="radio" name="q3" value="c" /> 40</label>
-          <label><input type="radio" name="q3" value="d" /> 42</label>
+          <label for="q3">Enter a numeric value only.</label>
+          <input type="number" id="q3" step="any" inputmode="decimal" />
         </div>
 
         <div class="question-block">
           <p class="question">
-            4. Five people (A, B, C, D, E) sit in a row.<br>
-            A sits to the left of B.<br>
-            C is not next to D.<br>
-            E is at one end.<br>
-            Which must be true?
+            4. If John can drink one barrel of water in 6 days, and Mary can drink one barrel of water in 12 days, how long would it take them to drink one barrel of water together?
           </p>
-          <label><input type="radio" name="q4" value="a" /> A is at the far left</label>
-          <label><input type="radio" name="q4" value="b" /> B is at the far right</label>
-          <label><input type="radio" name="q4" value="c" /> E is at either end</label>
-          <label><input type="radio" name="q4" value="d" /> C is in the middle</label>
+          <label for="q4">Enter a numeric value only.</label>
+          <input type="number" id="q4" step="any" inputmode="decimal" />
         </div>
 
         <div class="question-block">
           <p class="question">
-            5. A clock shows 3:15.<br>
-            What is the angle between the hour and minute hands?
+            5. Jerry received both the 15th highest and the 15th lowest mark in the class. How many students are in the class?
           </p>
-          <label><input type="radio" name="q5" value="a" /> 0°</label>
-          <label><input type="radio" name="q5" value="b" /> 7.5°</label>
-          <label><input type="radio" name="q5" value="c" /> 15°</label>
-          <label><input type="radio" name="q5" value="d" /> 30°</label>
+          <label for="q5">Enter a numeric value only.</label>
+          <input type="number" id="q5" step="1" inputmode="numeric" />
         </div>
 
         <div class="question-block">
           <p class="question">
-            6. If five cats can catch five mice in five minutes,<br>
-            how long will it take one cat to catch one mouse?
+            6. A man buys a pig for $60, sells it for $70, buys it back for $80, and sells it finally for $90. How much has he made?
           </p>
-          <label><input type="radio" name="q6" value="a" /> 1 minute</label>
-          <label><input type="radio" name="q6" value="b" /> 2 minutes</label>
-          <label><input type="radio" name="q6" value="c" /> 3 minutes</label>
-          <label><input type="radio" name="q6" value="d" /> 4 minutes</label>
-          <label><input type="radio" name="q6" value="e" /> 5 minutes</label>
+          <label for="q6">Enter a numeric value only.</label>
+          <input type="number" id="q6" step="any" inputmode="decimal" />
         </div>
 
         <div class="question-block">
           <p class="question">
-            7. There are three crates: one contains only apples,
-            one contains only oranges, and one contains a mixture of both apples and oranges.<br>
-
-            Each crate is labeled incorrectly.<br>
-
-            You are allowed to pick one fruit from only one crate, without looking inside.<br>
-
-            From which labeled crate should you pick in order to correctly determine the contents of all three crates?
-            </p>
-
-            <label><input type="radio" name="q7" value="a" /> Apples</label>
-            <label><input type="radio" name="q7" value="b" /> Oranges</label>
-            <label><input type="radio" name="q7" value="c" /> Apples and Oranges (Mixed)</label>
-            <label><input type="radio" name="q7" value="d" /> Cannot be Determined</label>
-        </div>
-
-        <div class="question-block">
-          <p class="question">
-            8. If all engineers are problem-solvers,and some problem-solvers are artists.<br>
-            Which must be true?
+            7. Simon decided to invest $8,000 in the stock market one day early in 2008. Six months after he invested, on July 17, the stocks he had purchased were down 50%. Fortunately for Simon, from July 17 to October 17, the stocks he had purchased went up 75%. At this point, Simon:
           </p>
-          <label><input type="radio" name="q8" value="a" /> Some engineers are artists</label>
-          <label><input type="radio" name="q8" value="b" /> All artists are engineers</label>
-          <label><input type="radio" name="q8" value="c" /> Some engineers are problem-solvers</label>
-          <label><input type="radio" name="q8" value="d" /> None of the above</label>
-        </div>
-
-        <div class="question-block">
-          <p class="question">
-            9. 2, 4, 12, 48, ___
-          </p>
-          <label><input type="radio" name="q9" value="a" /> 96</label>
-          <label><input type="radio" name="q9" value="b" /> 144</label>
-          <label><input type="radio" name="q9" value="c" /> 192</label>
-          <label><input type="radio" name="q9" value="d" /> 240</label>
-        </div>
-
-        <div class="question-block">
-          <p class="question">
-            10. If it is raining, then the ground is wet.<br>
-            The ground is wet.<br>
-            What can be concluded?
-          </p>
-          <label><input type="radio" name="q10" value="a" /> It is raining</label>
-          <label><input type="radio" name="q10" value="b" /> It may be raining</label>
-          <label><input type="radio" name="q10" value="c" /> It is not raining</label>
-          <label><input type="radio" name="q10" value="d" /> None of the above</label>
-        </div>
-
-        <div class="question-block">
-          <p class="question">
-            11. If all cats are animals, and some animals are pets.<br>
-            Which must be true?
-          </p>
-          <label><input type="radio" name="q11" value="a" /> Some cats are pets</label>
-          <label><input type="radio" name="q11" value="b" /> All cats are animals</label>
-          <label><input type="radio" name="q11" value="c" /> All pets are cats</label>
-          <label><input type="radio" name="q11" value="d" /> None of the above</label>
-        </div>
-
-        <div class="question-block">
-          <p class="question">
-            12. 5, 10, 20, 40, ___
-          </p>
-          <label><input type="radio" name="q12" value="a" /> 60</label>
-          <label><input type="radio" name="q12" value="b" /> 70</label>
-          <label><input type="radio" name="q12" value="c" /> 80</label>
-          <label><input type="radio" name="q12" value="d" /> 100</label>
-        </div>
-
-        <div class="question-block">
-          <p class="question">
-            13. If it is sunny, then the park is open.<br>
-            The park is not open.<br>
-            What must be true?
-          </p>
-          <label><input type="radio" name="q13" value="a" /> It is sunny</label>
-          <label><input type="radio" name="q13" value="b" /> It is not sunny</label>
-          <label><input type="radio" name="q13" value="c" /> It may be sunny</label>
-          <label><input type="radio" name="q13" value="d" /> None of the above</label>
-        </div>
-
-        <div class="question-block">
-          <p class="question">
-            14. 1, 4, 9, 16, 25, ___
-          </p>
-          <label><input type="radio" name="q14" value="a" /> 30</label>
-          <label><input type="radio" name="q14" value="b" /> 32</label>
-          <label><input type="radio" name="q14" value="c" /> 36</label>
-          <label><input type="radio" name="q14" value="d" /> 49</label>
-        </div>
-
-        <div class="question-block">
-          <p class="question">
-            15. A person walks 3 miles east and then 4 miles north.<br>
-            How far are they from the starting point?
-          </p>
-          <label><input type="radio" name="q15" value="a" /> 5 miles</label>
-          <label><input type="radio" name="q15" value="b" /> 6 miles</label>
-          <label><input type="radio" name="q15" value="c" /> 7 miles</label>
-          <label><input type="radio" name="q15" value="d" /> 8 miles</label>
+          <label><input type="radio" name="q7" value="a" /> a. has broken even in the stock market</label>
+          <label><input type="radio" name="q7" value="b" /> b. is ahead of where he began</label>
+          <label><input type="radio" name="q7" value="c" /> c. has lost money</label>
         </div>
 
         <div class="button-row">
-          <button onclick="submitTest()">Submit</button>
+          <button id="submitBtn" onclick="submitTest()">Submit</button>
         </div>
       </div>
 

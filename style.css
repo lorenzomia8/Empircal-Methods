@@ -63,6 +63,7 @@ label {
 }
 
 input[type="text"],
+input[type="number"],
 select {
   width: 100%;
   padding: 12px 14px;
@@ -73,6 +74,7 @@ select {
 }
 
 input[type="text"]:focus,
+input[type="number"]:focus,
 select:focus {
   outline: none;
   border-color: #4f46e5;
@@ -150,6 +152,22 @@ button.secondary:hover {
   background: #eef2ff;
   padding: 10px 14px;
   border-radius: 10px;
+}
+
+.note-box {
+  background: #eef2ff;
+  border: 1px solid #c7d2fe;
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-bottom: 22px;
+}
+
+.result-box {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 18px;
+  margin-top: 16px;
 }
 
 @keyframes fadeIn {
